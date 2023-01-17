@@ -80,6 +80,9 @@ def process_data(data):
 print (process_data([[2, 9], [2, 4], [7, 5]]))  #=>(28)
 
 
+
+#Problem Domain 
+
 # implement a difference function, which subtracts one list from another and returns the result.
 
 # It should remove all values from list a, which are present in list b keeping their order.
@@ -101,3 +104,26 @@ def array_diff(a,b):
 print (array_diff([1,2,2], [])) # [1, 2, 2]
 print (array_diff([], [1,2])) #[]
 print (array_diff([1,2], [1])) # [2]
+
+
+
+# Problem Domain
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+# Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. 
+# Additionally, if the number is negative, return 0 (for languages that do have them).
+
+
+#Solution
+
+def multiply (number):
+    sum = 0 
+    for i in range (number):
+        if i % 3 ==0 or  i %5 == 0  :
+            sum += i
+
+    return sum
+
+
+
+print (multiply(6))
