@@ -116,14 +116,203 @@ print (array_diff([1,2], [1])) # [2]
 
 #Solution
 
-def multiply (number):
-    sum = 0 
-    for i in range (number):
-        if i % 3 ==0 or  i %5 == 0  :
-            sum += i
+# def multiply (number):
+#     sum = 0 
+#     for i in range (number):
+#         if i % 3 ==0 or  i %5 == 0  :
+#             sum += i
 
-    return sum
+#     return sum
 
 
 
-print (multiply(6))
+# print (multiply(6))
+
+
+#Problem Domain
+# Write a function that takes a shuffled list of unique numbers from 1 to n
+# with one element missing (which can be any number including n). Return this missing number.
+#example :[4, 2, 3]  =>  1
+
+#Solution :
+
+def find_missing_number(numbers):
+#A
+    # count = 1 
+    # for _ in numbers:
+        
+    #     if count in numbers :
+            
+    #         count += 1
+            
+    # return count
+        
+
+
+#B
+    n = len (numbers) +1
+    return int((n * (n+1)  / 2) - sum (numbers))
+
+    
+
+print (find_missing_number ([4, 2, 3]))
+
+
+
+# Problem Domain 
+# Write a function that takes an array of numbers and returns the sum of the numbers.
+#  The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+
+#Solution :
+
+def sum_array(a):
+
+    sum = 0
+    for i in a :
+        sum +=i 
+
+    return sum 
+
+
+
+
+
+print (sum_array([1, 5.2, 4, 0, -1]))
+
+
+
+
+
+# Problem Domain 
+#Given a list of unique words.
+#Find al l pairs of distinct indices (i, j) in the given list so that the concatenation of the two words, i.e. words[i] + words[j] is a 
+# palindrome.
+
+
+#Solution :
+
+
+def palindrome_pairs(words):
+#A:
+    # res = []
+    # for i in range (len(words)):
+    #     for j in range (len(words)):
+    #         if words[i]+words[j] == (words[i]+words[j])[::-1] and i!=j:
+    #             res.append([i,j])
+    # return res
+
+#B:
+    return [[i,j] for i in range (len(words)) for j in range (len(words)) if words[i]+words[j] == (words[i]+words[j])[::-1] and i!=j]
+
+
+print(palindrome_pairs (["abcd", "dcba", "lls", "s", "sssll"]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Problem Domain
+# Create a function that takes an array of letters, and combines them into words in a sentence.
+# The function should combine all the 0th indexed letters to create the word 'just', 
+# all the 1st indexed letters to create the word 'live', etc.
+# The array will be formatted as so:
+
+# [
+#   ['J','L','L','M'],
+#   ['u','i','i','a'],
+#   ['s','v','f','n'],
+#   ['t','e','e','']
+# ] 
+# Output  => "Just Live Life Man"
+
+# Solution :
+array =[
+  ['J','L','L','M'],
+  ['u','i','i','a'],
+  ['s','v','f','n'],
+  ['t','e','e','']
+ 
+] 
+
+def arr_adder(arr):
+  
+    r = ""
+    z= len (array[0])
+    for i in range (z):     
+         
+        for j in array : 
+           
+                
+                
+                
+                r +=j[i]
+        if i == z-1:
+                   r= r
+        else :
+             r += " "
+    return r
+                
+    
+      
+         
+         
+
+print(arr_adder(array))
+
+# i = 0  j =0
+# i =1 j =0
+
+
+
+
+
+
+# def palindrome_pairs(words):
+   
+
+# print(palindrome_pairs(["abcd", "dcba", "lls", "s", "sssll"]))
+
+
+
+
+
+# Find longest sequence of zeros in binary representation of an integer.
+
+# 10000010001 -->5
+# 1000 -->0
+
+def solution (N):
+    counter = 0
+    max = 0
+   
+    M=(str(N).split("1"))
+    l = len(M)-1
+    
+    if M[l] != "":
+        M= M[0:len(M) -1]
+   
+    for i in M:
+            
+        
+            for j in i :
+                counter +=1 
+            if counter > max :
+                max = counter 
+                counter = 0
+            
+                 
+               
+
+    return max
+            
+                     
+
+print (solution ( 11111000100000))  #==>3
