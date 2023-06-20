@@ -289,30 +289,497 @@ print(arr_adder(array))
 # 10000010001 -->5
 # 1000 -->0
 
-def solution (N):
-    counter = 0
-    max = 0
+# def binarygap (N):
+#     counter = 0
+#     max = 0
    
-    M=(str(N).split("1"))
-    l = len(M)-1
+#     M=(str(N).split("1"))
+#     l = len(M)-1
     
-    if M[l] != "":
-        M= M[0:len(M) -1]
+#     if M[l] != "":
+#         M= M[0:len(M) -1]
    
-    for i in M:
+#     for i in M:
             
         
-            for j in i :
-                counter +=1 
-            if counter > max :
-                max = counter 
-                counter = 0
+#             for j in i :
+#                 counter +=1 
+#             if counter > max :
+#                 max = counter 
+#                 counter = 0
             
                  
                
 
-    return max
+#     return max
             
                      
 
-print (solution ( 11111000100000))  #==>3
+# print (binarygap ( 11111000100000))  #==>3
+
+
+#Example :
+# Rotate an array to the right by a given number of steps
+# given an array A consisting of N integers and an integer K, returns the array A rotated K times.
+
+# For example, given
+
+#     A = [3, 8, 9, 7, 6]
+#     K = 3
+# the function should return [9, 7, 6, 3, 8]. Three rotations were made:
+
+    # [3, 8, 9, 7, 6] -> [6, 3, 8, 9, 7]
+    # [6, 3, 8, 9, 7] -> [7, 6, 3, 8, 9]
+    # [7, 6, 3, 8, 9] -> [9, 7, 6, 3, 8]
+
+#Solution :
+b =[3, 8, 9, 7, 6]
+def rotate (arr ,k):
+    # list = [3, 8, 9, 7, 6]
+    for i in range (k):
+#shifted backwards (to left)
+      p = arr.pop()
+      arr.insert (0,p)
+    return(arr)
+    
+
+print (rotate ([3, 8, 9, 7, 6] ,3  ))  #[6,3,8,9,7]
+
+
+
+# example :
+# reverse array :
+#solution :
+
+# def reverse (arr):
+#     temp = 0
+    
+#     for i in range (len (arr)//2):
+#             temp = arr [(len(arr))-(i+1)]
+            
+#             arr [(len(arr))-(i+1)]=arr[i] 
+            
+#             arr[i] = temp 
+          
+            
+#     return  (arr)
+
+    
+
+     
+
+
+# print (reverse([2,3,4,5,6,7,8]))   #---> [7,6,5,4,3,2]
+
+
+def unpaired  (arr):
+    
+    for i in range(len(arr)):
+        c=0
+        for j in range(len(arr)):
+                
+                if arr[i]==arr[j]:
+                     c+=1
+
+                
+                      
+                     
+        if c%2==1 :
+                     return arr[i]
+        
+        c=0
+             
+
+    return   
+
+print (unpaired ([9,3,7,9,3,3,3]))
+
+
+
+# Count minimal number of jumps from position X to Y.
+# A small frog wants to get to the other side of the road. The frog is currently located at position X and wants to get to a position greater than or equal to Y. The small frog always jumps a fixed distance, D.
+
+# Count the minimal number of jumps that the small frog must perform to reach its target.
+
+def jumps (x,y,d):
+     
+  res = (y-x)/d
+  if res %2 !=0 :
+        res +=1
+  return int(res) 
+
+print (jumps (10,200,30))
+
+
+# Find the missing element in a given permutation.
+
+#Solution 
+# [1,2,3,5]
+def missing (arr):
+     n = len(arr)+1
+     total = int(n*(n+1) /2)
+     res = total -sum(arr)
+     return res
+     
+
+print (missing ([1,2,3,4,5]))
+
+
+
+
+# Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|.
+
+
+
+
+# 
+# 
+# def solution (arr):
+    # c = 0
+    # neew =[]
+    # arr.sort()
+    # newlist = [abs(i-j) for i in arr for j in arr if i !=j ]
+    # print (newlist)
+    # k = max(set (newlist) ,key =newlist.count)
+    # print (k ,"lll")
+    # 
+    # for i in arr :
+        #  for j in arr:
+        # 
+                    #  if i !=j :
+                            # if abs(i-j) == k:
+                                #  
+                            #  neew.append(i)
+# 
+    # x= set(neew)
+    # for i in x :
+        #  c+=1
+# 
+    # return c
+    # 
+# 
+# 
+# print (solution ([4,7,1,5,3]))
+# 
+
+#Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+# You may assume that each input would have exactly one solution, 
+# and you may not use the same element twice.
+
+# You can return the answer in any order
+def twoSum( nums, target):
+       
+    
+    
+      
+       
+        for i in range (len (nums)):
+           k =i +1
+           for j in range (k , len (nums)):
+               if nums[i] +nums [j] == target :
+                   res = i , j
+        return res 
+
+print (twoSum ([2,8,7,3] , 9))
+# 
+# We have two special characters:
+# 
+# The first character can be represented by one bit 0.
+# The second character can be represented by two bits (10 or 11).
+# Given a binary array bits that ends with 0, return true if the last character must be a one-bit character.
+# 
+#  
+# 
+# Example 1:
+# 
+# Input: bits = [1,0,0]
+# Output: true
+# Explanation: The only way to decode it is two-bit character and one-bit character.
+# So the last character is one-bit character.
+# Example 2:
+# 
+# Input: bits = [1,1,1,0]
+# Output: false
+# Explanation: The only way to decode it is two-bit character and two-bit character.
+# So the last character is not one-bit character.
+#  
+# 
+# Constraints:
+# 
+# 1 <= bits.length <= 1000
+# bits[i] is either 0 or 1.
+
+
+
+# Given two sorted arrays nums1 and nums2 of size m and n respectively,
+#  return the median of the two sorted arrays.
+# 
+# The overall run time complexity should be O(log (m+n)).
+
+#Solution :
+
+def median (nums1 ,nums2):
+    nums = ( nums1+nums2)
+    nums.sort ()
+    if len (nums) %2 ==0:
+         return float( nums[(len(nums)//2)-1] + nums[(len(nums)//2)])/2
+    return float(nums [len(nums)//2])
+         
+    
+
+
+
+
+
+print (median ([1,3] ,[2,4]))
+
+
+
+
+#Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+#  such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+# Notice that the solution set must not contain duplicate triplets.
+
+#Solution:
+
+def three_sum (nums):
+    list1 =[]
+    for i in range(len(nums)):
+         k = i+1
+         for j in range (k , len(nums)):
+                y = j+1
+                for z in range (y,len(nums)):
+                     if nums[i] +nums[j]+nums[z] == 0 and [nums[i] ,nums[j],nums[z]] not in list1:
+                          l = [nums[i] ,nums[j],nums[z]]
+                          l.sort()
+                          if l not in list1 : 
+                            list1.append(l) 
+                          
+
+    return list1
+              
+
+print (three_sum([-1,0,1,2,-1,-4])) 
+
+
+# 
+# Given an integer array nums of length n and an integer target, find three integers in nums 
+# such that the sum is closest to target.
+# 
+# Return the sum of the three integers.
+# 
+# You may assume that each input would have exactly one solution.
+# [-1,2,4,1]
+def closest (nums , target):
+    list1= []
+    min = float ("inf")
+    for i in range (len(nums)):
+          
+          k = i+1
+          for j in range (k ,len(nums)):
+               y = j+1
+               for z in range (y,len (nums)):
+                    
+                    list1=[nums [i],nums[j],nums[z]]
+                    for val in list1 :
+                        if sum (list1) == target:
+                              return target
+                    
+                        if abs(target-val)< min :
+                         min = abs(val-target) #5
+                         list2 =list1
+    return list2
+   
+   
+                     
+                         
+                         
+            
+                         
+
+
+
+print (closest ([-1,2,1,-4] , 1),"nnn")
+
+
+
+
+def  remove_duplicates(arr):
+    
+    print ('The original list is : '+ str(arr))
+     
+    # using list comprehension + arr.index()
+    # to remove duplicated
+    # from list
+    res =[]
+    for i in range(len(arr)):
+          if i == arr.index(arr[i]):
+               
+               print(i ,"i")
+               print(arr.index(arr[i]),"index")
+               res.append(arr[i])
+   
+     
+    return res
+
+
+print (remove_duplicates([1,2,3,5,5]))
+
+
+
+# Remove specific val from A given list 
+def remove_val (nums,val):
+
+
+    nums = [i for i in nums if i !=val]
+ 
+    return nums
+
+
+print (remove_val ([3,2,2,3],3))
+
+
+
+
+# Given two strings a and b, return the index of the first occurrence of a in b, 
+# or -1 if a is not part of b.
+
+
+def first_occurrence (a,b):
+     
+  if b in a :
+       
+       return a.index(b,0,1000)
+  return -1
+       
+  
+
+print (first_occurrence("mississippi" , "issip"))
+
+
+
+#Given an array of integers nums sorted in non-decreasing order, 
+# find the starting and ending position of a given target value.
+
+# If target is not found in the array, return [-1, -1].
+
+
+#Solution
+
+def find(nums ,target):
+    list1 =[]
+    if target in nums :
+        list1.append (nums.index(target))
+        for i in range (len(nums)-1,-1,-1):
+         if nums[i] == target :
+              list1.append(i)
+              break
+    else :
+     list1= [-1,-1]
+    
+    return list1
+    
+
+
+print (find ([5,7,7,8,8,10], 8))
+
+
+
+     
+def search( nums, target):
+
+   
+   
+   
+   
+        for i in nums :
+            print (i,"i")
+            if i == target :
+                x= nums.index(i)
+           
+           
+           
+        return x
+            
+print (search([4,5,6,7,0,1,2],0))
+
+
+
+# Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+# You must write an algorithm with O(log n) runtime complexity.Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+# 
+# You must write an algorithm with O(log n) runtime complexity.
+# You must write an algorithm with O(log n) runtime complexity.
+
+#Solution 
+
+def insert (nums , val):
+    x= 0
+    if val in nums :
+        return nums.index(val)
+    else :
+        
+        for i in range (len(nums)):
+                if val > nums[-1]:
+                     return len(nums)
+                elif val > nums[i] and val <nums[i+1]:
+                             nums = nums[:i+1]+[val]+nums[i+1:]
+                             x = nums.index(val)
+                
+                     
+                
+                        
+                   
+
+        return x
+ 
+
+print (insert ([1,3,5,6] , 0))
+
+
+
+
+# Given an array of integers, 
+# \determine the minimum number of elements to delete to leave only elements of equal value.
+
+#[1,2,2,3] ==> 2
+
+
+def equalizeArray(arr):
+     
+    counter = 0
+    count = 0
+    for i in range (len (arr)):
+        k = i+1
+        for j in range (len(arr[i+1::])):
+              print (arr[i::])
+              if arr[i] == arr[j] :
+                   counter +=2
+        if counter>count :
+             count = counter
+             
+        return count
+
+
+
+print(equalizeArray([3,3,3,3,3,3]))
+
+def mcount(arr):
+  n = []                  #To store count of each elements
+  for x in arr:
+      count = 0
+      for i in range(len(arr)):
+          if x == arr[i]:
+              count+=1
+      n.append(count)
+  a = max(n) 
+  if a ==1:
+       a=0
+               #largest in counts list
+   #element,frequency
+  return   len(arr) - a
+
+print (mcount([1,3,4,2,2]))
