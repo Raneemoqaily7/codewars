@@ -25,7 +25,7 @@ def reverseString (nums):
     return nums
 
         
-print(["hello","yoou","loong","luji","ooops"])
+# print(["hello","yoou","loong","luji","ooops"])
 # print (reverseString(["hello","yoou","loong","luji","ooops"]))
 
 
@@ -33,3 +33,24 @@ print(["hello","yoou","loong","luji","ooops"])
 # Reverse string 
 # Given a signed 32-bit integer x, return x with its digits reversed.
 #  If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+# input -123
+# output -321
+def reverseInteger (x):
+ 
+    if x<0:
+        is_negative=True
+        x=abs(x)
+    else:  
+     is_negative=False
+    r =0
+    for i in str(x)[::-1]:
+        r=r*10+int(i)
+    if is_negative :
+          r*= -1
+    return r
+
+  
+
+
+
+print (reverseInteger((-123890)))
