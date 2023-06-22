@@ -150,3 +150,66 @@ def plusOne (nums):
 
 
 # ///////////////////////////////////////////
+# Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+# Note that you must do this in-place without making a copy of the array.
+
+# Input: nums = [0,1,0,3,12]
+# Output: [1,3,12,0,0]
+
+
+def moveZeros(nums):
+    
+    # for i in range(len(nums)):
+        # j=1
+        # i=0
+        # for i in range(len(nums)):
+        #         for i in  range(len(nums)-1):
+                     
+           
+        #          if nums[i] ==0 and nums[i+1]!=0 :
+        #             nums[i],nums[i+1] = nums[i+1],nums[i]
+                   
+                 
+            
+      
+               
+
+        # return nums
+
+        j=0
+        for i in range(len(nums)):
+
+            if nums[i] != 0 and nums[j]==0:
+                temp = nums[j]
+                nums[j]=nums[i]
+                nums[i] =temp
+                # nums[i] ,nums[j] = nums[j], nums[i]
+
+            if nums[j]!=0:
+                j+=1
+
+        return nums
+
+
+
+            
+       
+# print (moveZeros([0,1,0,3,12 ,0,9,9,6,8]))
+
+
+
+# Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+# Input: nums = [2,7,11,15], target = 9
+# Output: [0,1]
+
+
+def twoSome (nums , target):
+    for  i in range(len(nums)):
+        for j in range(len(nums)):
+            if nums[i] + nums[j] == target and i !=j:
+                return i,j
+
+
+print (twoSome([3,2,4],6))
