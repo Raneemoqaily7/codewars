@@ -123,8 +123,15 @@ def findSingle(nums):
 # output 4
 
 def missingElemment (nums1,nums2):
-    return sum(nums1)-sum(nums2)
-print (missingElemment([1,2,3,4,5,6] ,[2,4,3,0,1,5]))
+    # solution1
+    for i in nums1:
+        if i not in nums2:
+            return i
+        
+
+    #solution 2
+    # return sum(nums1)-sum(nums2)
+print (missingElemment([1,2,3,4,5,6] ,[2,3,0,1,5]))
 
    
     
