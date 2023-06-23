@@ -131,7 +131,79 @@ def missingElemment (nums1,nums2):
 
     #solution 2
     # return sum(nums1)-sum(nums2)
-print (missingElemment([1,2,3,4,5,6,9] ,[9,2,3,0,1,5]))
+# print (missingElemment([1,2,3,4,5,6,9] ,[9,2,3,0,1,5]))
 
+# /////////////////////////////////////
+
+# combine two lists alternatingly taking elements 
+# input [a,b,c] , [1,2,3]
+# output [a,1,b,2,c,3]
+
+
+def combineLists(nums1,nums2):
+    list1=[]
+    for i in range(len(nums1)) :
+        # for j in range(len(nums2)):
+        #     if i ==j:
+                list1.append(nums1[i])
+                list1.append(nums2[i])
+
+    return list1
+
+# print (combineLists(["a","b","c"] , [1,2,3]))
+
+
+# ////////////////////////////////////////////////////////////////
+# Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+# Input: nums = [1,2,1]
+# Output: [1,2,1,1,2,1]
+
+
+def getConcatenation (nums):
+    ans =[i for i in nums]  + [i for i in nums] 
+    return ans
+       
+
+# print (getConcatenation([1,2,1]))
+
+
+
+# /////////////////////////////////////////////////////////////////////////////////////
+
+# given a string str , convert the first letter of each word in the string too uppercase
+# input str = "i love programming"
+#  output "I Love Programming"
+
+
+def uppercase(s):
+    words = s.split(" ") #["i" ,"love" ,"programming"]
+    for i in range(len(words)):
+        str =""
+        str+=chr(ord(words[i][0])-32)
+        str+=words[i][1::]
+        words[i]=str
+    return (" ".join(words))
+    
+# print(uppercase("i love programming"))
+
+
+
+# ////////////////////////////////////////////////////////////
+# given a list contains digits from 1 to n except of one missing number,return that missing number 
+# input =[2,3,4,5]  
+# output = 4
+
+def missingNumber (nums):
+    n = len(nums)
+    
+    return ((((n+1 ) * (n+2))  //2 ) - sum (nums))
+
+
+print (missingNumber([1,2,3,4,6] ))
+
+
+
+# ////////////////////////////////////////////////////////////////////////////////
    
+
     
