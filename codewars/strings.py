@@ -92,6 +92,8 @@ def isSubsequence (s,t):
     str=""
     for j in range(len(t)):
         for k in s[i:i+1]:
+            print (s[i:i+1])
+           
             if t[j] == k:
                 str+=t[j]
                 i+=1
@@ -199,11 +201,215 @@ def missingNumber (nums):
     return ((((n+1 ) * (n+2))  //2 ) - sum (nums))
 
 
-print (missingNumber([1,2,3,4,6] ))
+# print (missingNumber([1,2,3,4,6] ))
 
 
 
 # ////////////////////////////////////////////////////////////////////////////////
-   
+# Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+# input "elettcodcode"  # output 1
+# input "eettcodcode"  # output -1
 
+def firsOccure(string):
+
+
+    for i in range(len(string)):
+        if string[i] not in string[:i]+string[i+1::]:
+            
+             return i
+            
+    return -1
+
+# print(firsOccure("elettcodcode"))
+
+
+# ////////////////////////////////////////////////////////////////////////////
+# Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+# inputs => s = "anagram", t = "nagaram"  //  output true
+#inputs s = "rat", t = "car"    //Output: false
+
+
+def isAnagram (s,t):
     
+    list1=[i for i in s]
+    list2=[i for i in t]
+    return sorted(list1) ==sorted(list2)
+        
+# print (isAnagram("aacc","caac"))
+
+# //////////////////////////////////////////////////////////////////////////
+# A phrase is a palindrome if, after converting all uppercase letters into lowercase
+#  letters and removing all non-alphanumeric characters, it reads the same forward 
+# and backward. Alphanumeric characters include letters and numbers.
+
+# Given a string s, return true if it is a palindrome, or false otherwise.
+# Input: s = "A man, a plan, a canal: Panama"
+# Output: true
+
+
+def isPalidrome (s):
+    string =""
+    for i in s:
+        if 91>ord(i) >=65 or 123>ord(i) >=97 or 57>=ord(i) >=48  :
+            string +=i
+    string = string.lower()
+   
+    return string ==string[::-1]
+# print (isPalidrome("Marge, let's \"[went].\" I await {news} telegram."))
+
+# /////////////////////////////////////////////////////////////////
+
+# Write a function to find the longest common prefix string amongst an array of strings.
+
+# If there is no common prefix, return an empty string "".
+# Input: strs = ["flower","flow","flight"]
+# Output: "fl"
+
+def commonPrefix(strings):
+    
+    minimum = min(len(s) for s in strings)
+    prefix= ""
+    for i in range(minimum):
+        char = strings[0][i]
+        for j in range(1,len(strings)):
+            if strings[j][i] !=char:
+                return prefix
+            
+        prefix+=char
+    return prefix
+                    
+                   
+                    
+
+
+# print (commonPrefix(["flower","flow","flight"]))
+
+def test (nums):
+    
+        i=0
+        j=1
+        while i<=j and j<len(nums):
+            if nums[i]==nums[j]:
+                j+=1
+                
+            else :
+                nums[i+1]=nums[j]
+                i+=1
+        print(nums)
+        return i+1
+
+
+
+# print(test([1,1,2,2,3]))
+
+def find_elements_with_no_greater_right(arr):
+    res=[]
+    max = float("-inf")
+    for i in range(len(arr) -1 ,-1 ,-1):
+        if arr[i]>max:
+            res.append(arr[i])
+            max =arr[i]
+    res.reverse()
+    return res
+    
+
+# print (find_elements_with_no_greater_right([2,8,5,4]))
+
+
+def getString(s1,s2):
+    return len(set(s1)) == len(set(s2))
+# print(getString ("geeks" ,"geks"))
+
+# //////////////////////////////////////////////////////////////////////////////////
+
+# "Write a function that will take in an array and index and return new 
+# shuffled array where the fist element 
+
+# will be starting from that index and the second will be the original one and so on
+# input: [1, 2, 3, 4, 5, 6], idx = 3 // output: [4, 1, 5, 2, 6, 3] 
+def shuffle_array_from_index(arr, idx):
+    n = len(arr)
+    shuffled_array = []
+    
+    # Start from the given index and alternate elements from the left and right of it
+    for i in range(idx, n):
+        
+        shuffled_array.append(arr[i])
+        if i - idx ==idx :
+            break 
+        shuffled_array.append(arr[i - idx])
+    
+    return shuffled_array
+
+
+input_array = [1, 2, 3, 4, 5, 6]
+index = 3
+output_array = shuffle_array_from_index(input_array, index)
+# print(input_array)
+# print(output_array)  # Output: [4, 1, 5, 2, 6, 3]
+
+
+# ///////////////////////////////////////////////////////////////////////////
+
+# Find all the missing numbers between the min and the max number in this array (No built in methods allowed) // 
+# array = [0, 5, 4, 9, 3]; 
+def maxi(arr):
+    array = []
+    maximum = max(arr)
+    minimum = min(arr)
+    for i in range (minimum+1 , maximum):
+        if i not in arr:
+            array.append (i)
+    return array
+print (maxi([5, 2, 9, 1, 7, 3]))
+# /////////////////////////////////////////////////////////////////////////
+
+def find_repeated_letters(string):
+    letter_counts = {}
+
+    for char in string:
+        if char in letter_counts:
+            letter_counts[char] += 1
+        else:
+            letter_counts[char] = 1
+
+    repeated_letters = [(letter, count) for letter, count in letter_counts.items() if count > 1]
+    
+    return repeated_letters
+
+# print (find_repeated_letters("fyooooeeez"))
+
+def cube (num):
+    res =0
+    for i in str(num):
+        res += int(i)**3
+    # return res == num
+# print (cube(152))
+
+
+def sum_repeated_numbers(nums):
+    
+
+    output = []
+    running_sum = nums[0]
+
+    for i in range(1, len(nums)):
+        if nums[i] == nums[i - 1]:
+            running_sum += nums[i]
+        else:
+            output.append(running_sum)
+            running_sum = nums[i]
+
+    output.append(running_sum)  # Add the final sum
+
+    return output
+print(sum_repeated_numbers( [2, 2, 2, 7, 3, 3, 1, 2]))
+
+
+
+
+
+
+
+
+

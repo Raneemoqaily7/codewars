@@ -783,3 +783,22 @@ def mcount(arr):
   return   len(arr) - a
 
 print (mcount([1,3,4,2,2]))
+
+
+
+# Is a number prime?
+# Define a function that takes an integer argument and returns a logical value true or false depending on if the integer is a prime.
+
+# Per Wikipedia, a prime number ( or a prime ) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+def isPrime(num):
+    if num == 2 :
+         return True 
+    if num %3 == 0 or num%5==0 or num <2 or num %2 ==0 :
+         return False
+    else :
+         return True 
+    
+print (isPrime(75))
+
+    
