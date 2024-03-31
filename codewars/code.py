@@ -801,4 +801,202 @@ def isPrime(num):
     
 print (isPrime(75))
 
+
+# Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+def twoSum(self, nums, target):
+        for i in range(len(nums)) :
+            if target-nums[i] in nums[:i:]:
+                j = target-nums[i]
+                res = (i,nums.index(j))
     
+       
+        return res
+
+def mediaan(nums1,nums2):
+    
+     nums = (nums1+nums2)
+     nums.sort()
+     
+     l =len(nums) 
+     if l%2==0:
+      res = float(nums[len(nums)//2] +nums[(len(nums)//2)-1] )/2
+      return res
+     else:
+          res = nums[(len(nums) //2)]
+          return res
+# print (mediaan([1,2],[3,4]))
+     
+def removeDuplicate(nums):
+        new =[]
+        for i in nums:
+             if i not in new:
+              new.append(i)
+        
+        return (len(new))
+print (removeDuplicate([1,1,1,2,3,2,3,3]))
+
+
+def findDuplicates(nums):
+    
+     new=[]
+     for i in range(len(nums) ):
+          if nums[i] in nums[i+1::]:
+               print (nums[i:] , "[2,2,3,4,3,6,7,6,9]")
+               new.append(nums[i])
+     if new == []:
+          return -1
+     else :
+           return new
+    
+print (findDuplicates ([2,2,3,4,3,6,7,6,9,9]))
+
+
+# def reversed (s):
+#     arr = s.split(" ")
+#     for i in arr :
+#           for j in range(len(i)//2) :
+#                i[j] ,i[len(i)-(j+1)]= i[len(i)-(j+1)],i[j]
+              
+#     return arr
+    
+
+               
+               
+print (reversed ("Hello World"),"tssst")
+
+# def is_palindoram(s):
+#     i=0
+#     j=len(s)-1
+#     while i <=j:
+#         if s[i]!=s[j]:
+#             return ("not palindrom")
+#         else:
+#             i+=1
+#             j-=1
+#     return ("palindrom")
+
+# print (is_palindoram("ebhkkhbe"))
+
+def reverse_string_with_variable_and_loop(input_str):
+    reversd_str = " "
+    for s in input_str:
+         reversd_str = s + reversd_str
+
+    return reversd_str
+
+print (reverse_string_with_variable_and_loop("hello"))
+
+def reverse_array(arr):
+     list1= []
+     for i in arr[::-1]:
+          list1.append(i)
+
+     return list1
+
+print(reverse_array([1,2,3,4]))
+
+
+def finEven(arr):
+    counter =0 
+    for i in arr:
+          if i %2==0:
+               counter+=1
+    return counter
+
+print (finEven([1,2,3,4,5,6,7,8,9,10,22]))
+    
+
+def reverse_array(arr):
+  
+    newArr =[]
+    for i in arr[::-1]:
+        newArr.append(i)
+    return newArr
+print(reverse_array([1,2,3,4]))
+
+
+
+def findEvenWorld(p):
+     arr= p.split(" ")
+     largestEvenWord=""
+     print (arr)
+     for word in arr:
+          print(word)
+          if len(word) %2==0 and len(word) >len(largestEvenWord):
+               largestEvenWord =word 
+          else :
+               return("no even words")
+     return largestEvenWord
+          
+print (findEvenWorld ("Hello fro Jor"))
+
+
+
+def isEqual(arr1,arr2):
+    if len(arr1) !=len(arr2):
+          return False
+    for i in range(len(arr1)):
+         if arr1[i] != arr2[i]:
+              return False
+    return True
+
+print (isEqual([1,2,3,4,5],[1,2,3,4,9]))
+
+
+def findSmallest(arr):
+    
+    smallest=arr[0]
+    for num in arr[1:]:
+        if num>smallest:
+              smallest=num
+              
+        
+    return smallest
+print (findSmallest([1,6,2,3,4,0,-2]))
+
+
+# There is a collection of input strings and a collection of query strings. For each query string,
+# determine how many times it occurs in the list of input strings. Return an array of the results.
+
+def occures(inpt,query):
+    result =[]
+    for i in query:
+            counter =0
+            for j in inpt:
+               if j==i:
+                    counter+=1
+
+            result.append(counter)
+    return (result)
+inpt = ["apple", "banana", "apple", "orange", "banana", "grape"]
+query = ["apple", "banana", "grape", "kiwi"]
+
+print (occures(inpt,query))
+
+
+def left_rotate_array(arr, d):
+    n = len(arr)
+   
+    # Calculate the effective number of rotations to avoid unnecessary rotations
+    effective_rotation=arr.index(d)
+    # Perform left rotation by slicing the array
+    rotated_array = arr[effective_rotation+1:]+arr[:effective_rotation+1]
+    return rotated_array
+
+# Example usage:
+original_array = [1, 2, 3, 4, 5]
+d =3
+rotated_array = left_rotate_array(original_array, d)
+print("Original Array:", original_array)
+print("Left Rotated Array:", rotated_array)
+
+
+    
+
+
+          
+
+
+
+     
